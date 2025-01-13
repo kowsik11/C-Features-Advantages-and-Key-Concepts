@@ -1,0 +1,695 @@
+c++ is low level programming language.. which is fast and flexible.. mainly we used in game development?!
+It has some other benefits like performance, customizable with gaming machines, scalability, better for memory management etc
+Adv: C++ is an OOPs language that means the data is considered as objects.
+It is a mixture of both procedural and object-oriented programming languages. In simple words, it supports classes and objects.
+
+
+3 reasons we are using C++ over python.!!
+
+* Performance and Speed
+C++ is a compiled language, making it significantly faster than Python, which is an interpreted language. This is critical for applications that demand high performance, such as game engines, real-time systems, and resource-intensive software.
+* Low-Level System Control
+C++ provides low-level memory manipulation through pointers and direct access to hardware resources, allowing fine-grained control over system behaviour. 
+* Static Typing and Compile-Time Error Checking  << ----
+C++ uses static typing, which helps catch errors at compile time, ensuring fewer runtime errors compared to Python, which uses dynamic typing.
+
+32 key words: auto, break, case, char, double, do, default, else, Enum, extern, float, for, goto, if, int, long, struct, switch, sizeof, short, signed, unsigned, union, void, while etc... ALPHABETICAL ORDER
+
+
+Template : It is a blue print or formula to create a function template (generic class or a generic function.
+
+Template are useful to create a GENERIC PROGRAM
+GENERIC PROGRAMMING means defining a single function or a single class which we can work with different type of data.
+
+Template or Generics - both are same
+
+real life example : when some one is going to back to create a bank account then that provides a same application form but fill up chese details maatram different.
+
+
+call by reference - we send original value.. so it will update and affect the original value.
+
+destructor are automatically called:
+when object goes out of the scope
+when using delete operator
+when we are using a temporary object in destroyed.
+
+
+7. Why is Object-Oriented Programming (OOP) Popular?
+OOP is popular because it promotes modularity, reusability, and maintainability. It allows
+developers to:
+
+· Model real-world objects more effectively.
+· Encapsulate data to hide implementation details.
+. Inherit functionality and extend classes.
+· Use polymorphism to handle different data types with the same interface.
+
+class: default - private, access specifiers are there, requires class keyword, default constructor provided, and mainly used for complex data structures and objects... Provides addition features like data hiding and inheritance. - user defined datatype where all the member functions and data members are there.
+
+Structure is vice-versa :- structure is a collection of variables of different data types under a single name and store in unique memory LOCATION..!!
+
+union : is public, different memory location, size is determined by largest member, only one member of the union can hold a value at any given time.
+
+
+Difference with other programming languages:
+Is a complied language, portable, fast speed of execution, do not support garbage collectors (manual Memory management) .
+<< ----
+its fast due to: compilation (compiles directly into machine code), static typing, lower level language, manual memory management.
+
+
+:: scope resolution :- used to access identifiers within namespace, classes, and global space.
+Is to resolve ambiguity
+
+enum: makes code easier to read and maintain.
+
+c++ compilers: gcc (gnu compiler collection), intel c++, code blocks, notepad, eclipse.
+
+flush : used to force the output buffer to print immediately.
+
+----------------------------------------------------------------------------------
+
+
+WHY we are using linked list.. because by using array.. we may suffer with two reasons.. 
+1. memory will waste due to whenever we are allocating more memory and using less memory.
+2. and here we can add the data or element in between and we can play around of it.. but in array its fixed contiguous memory allocation.
+Its like grow and shrink. - we can also rearrange the links.
+
+
+Graphs are three types:
+directed
+undirected
+weighted
+
+Two ways to solve - BFS, DFS 
+
+
+To stop the recursion calls.. we should write the proper base class conditions in the code. Otherwise we can get STACK OVERFLOW ETC.
+
+
+There are different coding programming paradigms are there:
+1. procedural - 
+2. oops
+3. functional
+
+But not always it will perform correctly.. ex: when it has to identify the a dog bark etc.. in sometimes polymorphism also wont work properly.. 
+So that.. we are USING MACHINE LEARNING (teaching a computer to do a task without explicitly programming it to do that task.) where we have large amount of data.. used for training and testing... then we use models. and change the parameters over the time. ex: NEURAL NETWORK...
+
+
+
+
+Encapsulation - binding class members and member functions, used to protect the data, It achieved by using public, private and hybrid
+and we used setters and getters
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class User {
+private:
+    int userId;           // Encapsulated data
+    string username;      // Encapsulated data
+
+public:
+    // Constructor to initialize the object
+    User(int id, const string& name) {
+        userId = id;
+        username = name;
+    }
+
+    // Getter for userId
+    int getUserId() const { return userId; }
+
+    // Getter for username
+    string getUsername() const { return username;}
+
+    // Setter for username (if updates are needed)
+    void setUsername(const string& name) { username = name;  }
+
+    // Method to display user info
+    void displayUserInfo() const { cout << "User ID: " << userId << "\nUsername: " << username << endl;  }
+};
+
+int main() {
+    // Creating a User object
+    User user1(101, "Alice");
+
+    // Displaying user info
+    user1.displayUserInfo();
+
+    // Updating username
+    user1.setUsername("AliceUpdated");
+    cout << "After update:" << endl;
+    user1.displayUserInfo();
+
+    return 0;
+}
+
+
+
+Abstraction - used to hide the complexities of the code, hiding implementation details. - achieved using abstract classes, interfaces, and pure sl functions.
+
+----------------------------------------------------------------------------------
+
+Virtual Function:
+Definition: A function declared with the VIRTUAL keyword in a base class.
+Implementation in Base Class: Can have a body (implementation).
+Purpose: Allows a derived class to override the function but doesn’t enforce it.
+Class Type: The base class can be used as it is.
+Example:
+
+Copy code
+class Base { 
+    virtual void show() { cout << "Base"; } 
+};
+
+class Derived : public Base {
+public:
+    void show() override { // Mandatory implementation in derived class
+        cout << "Derived class show function" << endl;
+    }
+};
+
+int main() {
+    Base* ptr;       // Base class pointer
+    Derived d;       // Derived class object
+    ptr = &d;        // Pointer points to derived object
+    ptr->show();     // Calls the derived class's show() function
+    return 0;
+}
+
+Pure Virtual Function :
+Definition: A function declared with the virtual keyword and assigned = 0 in a base class.
+Implementation in Base Class: Has no body (no implementation) in the base class.
+WE USED IN ABSTRACT CLASS which is specifically designed to use in base class.
+
+class Base { 
+    virtual void show() = 0; 
+};
+
+or 
+
+class Base { 
+    void show(){
+	cout << "hello";
+    }
+};
+
+
+-----------------------------------------------------------------------------
+
+Segmentation fault: A "segmentation fault" in programming refers to an error that occurs when a program tries to access a memory location that it is not allowed to access, often resulting in a sudden crash of the program.
+
+Overflow Error: Overflow Error occurs when the number is too large for the data type to handle. - It happens in recursions.
+For example, the range of int data type is –2,147,483,648 to 2,147,483,647
+
+to solve this.. compile your application with -g flag. and then run it in Debugger.
+
+
+vector<vector<int>> matrix (rows, vector<int>(columns));
+
+
+To access private members of a class we use GETTERS AND SETTERS.... WE CAN ALSO USE FRIEND FUNCTION.
+
+use getline - prevents the spaces in while entering a string.
+
+
+String literal and string:
+The main difference is that std::string is a class from the Standard Library, offering rich methods for string manipulation like concatenation, searching, and modification, whereas a string literal is a simple, immutable array of characters stored in read-only memory."
+
+If asked for an example, you can elaborate on how std::string allows dynamic operations like appending (+=) or finding substrings (.find()), which aren't possible directly with string literals.
+
+std::string: Hello, World!
+String Literal: Hello
+
+typecasting:
+implicit: automatically,   explicit: it's user defined.
+
+programming paradigm: set of pattern, principles and techniques.  << ----
+
+<< : stream insertion - used to output data -- bitwise left shift -- its an operator in c++
+
+--------------------------------------------------------------------------------------
+
+function overriding:
+
+when a derived class provides its own implementation of a function that is already defined in its base class. The function in the base class is marked as VIRTUAL, allowing runtime polymorphism.
+
+#include <iostream>
+using namespace std;
+
+class Base {
+public:
+    virtual void display() { // Virtual function
+        cout << "Display function in Base class" << endl;
+    }
+};
+
+class Derived : public Base {
+public:
+    void display() override { // Overriding the function
+        cout << "Display function in Derived class" << endl;
+    }
+};
+
+int main() {
+    Base* basePtr;         // Base class pointer
+    Derived derivedObj;    // Derived class object
+
+    basePtr = &derivedObj; // Base pointer points to derived object
+    basePtr->display();    // Calls the overridden function in Derived class
+
+    return 0;
+}
+
+output: Display function in Derived class
+
+
+Runtime polymorphism: 
+It is also termed Dynamic binding and Late binding.
+It is slow as compared to compile-time because execution is known at runtime.
+It is achieved by virtual functions and function overriding.
+
+
+Types of Polymorphism: compile time(function overloading, operator overloading), runtime polymorphism (function overriding).
+
+Main purpose of using the virtual keyword in C++ is to enable runtime polymorphism through function overriding.
+
+Key Points:
+Dynamic Binding, Function Overriding, Polymorphism.
+
+---------------------------------------------------------------------------------------
+
+Internal Implementation of a HashMap:
+
+A HashMap is a data structure that stores key-value pairs and allows for efficient retrieval, insertion,
+and deletion based on keys. It is based on hashing, which uses a HASH FUNCTION to compute an index
+(or hash code) where the value is stored. 
+
+HashMaps, collision resolution is essential because multiple keys might hash to the same index.
+
+Linear Probing, Quadratic Probing, Double Hashing
+
+> Linear Probing
+How It Works:
+When a collision occurs, the algorithm checks the next sequential index (e.g., index+1, index+2, etc.) until an empty slot is found.
+
+Quadratic Probing
+How It Works:
+Instead of checking the next sequential index, it checks indices at intervals determined by a quadratic function (e.g.index+1^2, index+2^2,, etc.).
+
+Double hashing:  More complex, requires 2 hash functions
+
+formula:= index + (i * h2(key))
+
+
+unordered_map <int, int> freq;                HashTable/map/unordered_map  - no order, O(1), fast insert/del
+freq[0] = 5;
+
+vector <pair<int, string>> students = {{1, "chinni"}, {2, "kowsik"}};
+freq[0].first = 5;
+
+---------------------------------------------------------------------------------------
+
+std stands for the standard namespace. It is used to access the Standard Template Library (STL), where standard library functions and classes are defined.
+
+namespace is a way to organize code, while std is a built-in namespace for standard library features.
+
+Examples of things you can find in the std namespace include:
+Containers like vectors and lists
+Algorithms like sort and find
+Functions like min and max
+Iterators.
+
+   #include <iostream>
+
+   int main() {
+       std::cout << "Hello, world!\n"; // Using fully qualified name
+       return 0;
+   }
+
+
+   #include <iostream>
+   using namespace std; // Using directive
+
+   int main() {
+       cout << "Hello, world!\n"; // Now 'cout' is directly accessible
+       return 0;
+   }
+
+
+---------------------------------------------------------------------------------------
+
+In C++, a token is the smallest unit of a program that the compiler understands, like keywords, identifiers, constants, strings, symbols (e.g., `[]`, `{}`), and operators (`+`, `=`). These are the building blocks of the code.
+
+
+
+Reference in C++:
+Fixed Alias: A reference always refers to the same variable; it cannot be reassigned to another.
+Non-Null: A reference must be initialized with a valid variable; it cannot be null.
+No Arrays: References do not work with arrays directly.
+Access Members with .: Use the dot operator (.) to access class or struct members.
+Direct Access: The reference itself is like the original variable, so you can use it without extra steps.
+<< ----
+Pointer in C++:
+Reassignable: A pointer can be reassigned to point to different variables.
+Can Be Null: A pointer can hold a null value (nullptr) or point to nothing.
+Works with Arrays: Pointers can point to the first element of an array and traverse it.
+Access Members with ->: Use the arrow operator (->) to access class or struct members.
+Needs Dereferencing: To access the value a pointer points to, you must use the dereference operator (*).
+
+
+-----------------------------------
+
+Arrays:
+Store same data elements in contiguous memory locations.
+Have a fixed size that can't change during execution.
+Use less memory because they only store the data.
+
+Lists:
+Store elements linked by pointers, with no fixed size.
+Are dynamic, allowing them to grow or shrink.
+Use more memory because they store both data and pointer information.
+
+list contains: data and next pointer address
+
+-----------------------------------------
+
+Malloc and calloc are C library functions that perform dynamic memory allocation:
+
+Malloc
+Allocates a single block of uninitialized memory of a specified size. It takes one argument, the total memory size. The values in the allocated memory are random (garbage values).
+
+Calloc
+Allocates memory for an array of elements of a specific size, initializing all the bytes to zero. It takes two arguments, the number of elements and the size of each element.
+
+---------------------------------------------
+
+Copy Constructor: A copy constructor is a member function that initializes an object using another object of the same class. Also, the Copy constructor takes a reference to an object of the same class as an argument.
+
+delete[]: It is used for deleting a whole array
+
+
+C++ access modifiers:
+Private – It can neither be accessed nor be viewed from outside the class 
+Protected – It can be accessedif and only if the accessor is the base class or derived class but not from outside.
+Public – It can be accessed or be viewed from outside the class 
+
+
+In C++, private members of a class are not directly accessible outside the class, even by derived
+classes. To access or modify private variables, you need to provide public getter and setter methods
+or use friend functions.
+
+An Inline function is a function where the compiler replaces the function call with the actual code of the function, which can improve performance by avoiding function call overhead. To declare an inline function, use the inline keyword before the function definition.  A recursive inline function is not allowed. 
+
+-------------------------------------------------
+
+An abstract class is a class that cannot be used to create objects directly. It has at least one function that has no implementation, called a pure virtual function.
+WE USED IN ABSTRACT CLASS which is specifically designed to use in base class.
+
+You use an abstract class when you want to provide a common structure or functionality for other classes to use, but you don’t want to allow creating objects of the abstract class itself. It’s like a blueprint for other classes to follow, but some parts are left for them to fill in.
+
+--------------------------------------------------
+
+Static Data Members: A static data member is a variable inside a class. It is declared with the static keyword and is initialized to 0 when the first object is created. Its scope lasts for the lifetime of the program but it is only visible within the class.
+
+Syntax:  static Data_Type Data_Member;
+
+
+DEEP copy: A deep copy creates a NEW OBJECT and copies all nested objects or references, creating independent copies of everything. Uses more memory, as it creates independent copies of all nested objects. Changes to nested objects in the copied object do not affect the original object. 
+A shallow copy has faster program execution whereas a deep copy makes it slow.
+
+----------------------------------------------------
+
+The this pointer in C++ is a special pointer that refers to the current object within a class. It allows member functions to access the object's own address and data.
+
+----------------------------------------------------
+
+Compiled Languages (e.g., C, C++)
+Process:
+Source Code: The code written by the programmer is saved in files (e.g., .c or .cpp).
+Compilation: A compiler (like GCC or Clang) translates the source code into MACHINE CODE (specific to the operating system and CPU).
+During this process, syntax and semantic errors are caught.
+Linking: The machine code is COMBINED with libraries and dependencies to produce an EXECUTABLE FILE (e.g., .exe or .out).
+Execution: The executable file runs directly on the machine's hardware.
+
+Advantages:
+Faster execution since the program is precompiled into native machine code.
+Better optimization opportunities.
+
+Drawbacks:
+Platform-dependent executables (e.g., a Windows .exe won't run on Linux).
+
+-------------------------------------------------------------
+
+Compiled Languages (e.g., C, C++)
+Interpreted Languages (e.g., JavaScript, Ruby, Bash)
+Hybrid Languages (e.g., Python, Java, C#)
+
+-------------------------------------------------------------
+
+Priority queue:
+
+int main() {
+    priority_queue<int> pq; // Max-Heap by default
+
+    // Inserting elements
+    pq.push(10);
+    pq.push(20);
+    pq.push(5);
+
+    cout << "Priority Queue (Max-Heap): ";
+    while (!pq.empty()) {
+        cout << pq.top() << " "; // Access the largest element
+        pq.pop(); // Remove the top element
+    }
+    cout << endl;
+}
+
+Priority queue will placed based on priority in the queue... 
+
+min heap is like, its tree where here we have heapify.. min heap, max heap.
+
+
+// Min-Heap Example
+priority_queue<int, vector<int>, greater<int>> minHeap;
+
+
+-------------------------------------------------------------
+
+
+singleton class: only one instance of the class throughout the lifetime of a program.
+working:
+if once instance is created then no other can be able to create.. and have the same memory address.
+It means it provides same memory address
+used in logging, configuration management.
+
+
+class Singleton {
+private:
+	static Singleton *instance; // Static instance of the class
+	Singleton() {               // // Private constructor
+		cout << "Singleton instance created." << endl;
+	}
+
+public:
+	// Static method to get the single instance of the class
+	static Singleton *getInstance() {
+	if (instance == nullptr) { // Create instance if it doesn't exist
+		instance = new Singleton();
+	}
+	return instance;
+
+}
+
+void showMessage() {
+cout << "Hello from Singleton!" << endl;
+
+}
+
+// Initialize the static instance to nullptr
+Singleton *Singleton::instance = nullptr;
+
+int main() {
+// Try to create two instances
+Singleton *s1 = Singleton :: getInstance();
+Singleton *s2 = Singleton :: getInstance();
+
+// Show that both instances are the same
+s1->showMessage();
+cout << "Address of s1: " << s1 << endl;
+cout << "Address of s2: " << s2 << endl;
+
+
+OUTPUT:
+
+Singleton instance created.
+Hello from Singleton!
+Address of s1: 0x5632be34f4e0
+Address of s2: 0x5632be34f4e0
+
+
+
+
+Identical trees or not ?!
+
+#include <iostream>
+using namespace std;
+
+struct Node {
+    int data;
+    Node* left, * right;
+};
+
+bool areIdentical(Node* root1, Node* root2) {
+    if (!root1 && !root2) return true;
+    if (!root1 || !root2) return false;
+    return (root1->data == root2->data) &&
+           areIdentical(root1->left, root2->left) &&
+           areIdentical(root1->right, root2->right);
+}
+
+int main() {
+    // Example trees
+    Node* root1 = new Node{1, nullptr, nullptr};
+    Node* root2 = new Node{1, nullptr, nullptr};
+
+    cout << "Are trees identical? " << (areIdentical(root1, root2) ? "Yes" : "No") << endl;
+    return 0;
+}
+
+
+Code for Power of 2 Numbers:
+
+#include <stdio.h>
+#include <math.h>
+
+int power(int base, int exp) {
+    return (int)pow(base, exp);
+}
+
+int main() {
+    int base = 2, exp = 4;  // Example: 2^4
+    printf("Result of %d raised to the power of %d is: %d\n", base, exp, power(base, exp));
+    return 0;
+}
+
+
+
+Macro for Bit Position:
+
+#include <stdio.h>
+
+#define CHECK_BIT(num, pos) (((num) >> (pos)) & 1)
+
+int main() {
+    int num = 5;  // Example number
+    int pos = 1;  // Bit position
+
+    if (CHECK_BIT(num, pos) == 1)
+        printf("Bit at position %d is 1\n", pos);
+    else
+        printf("Bit at position %d is 0\n", pos);
+
+    return 0;
+}
+
+
+Loop detected in Linkedlist
+
+bool detectLoop(Node* head) {
+    if (head == nullptr) return false;
+
+    Node* slow = head;
+    Node* fast = head;
+
+    while (fast != nullptr && fast->next != nullptr) {
+        slow = slow->next;            // Move slow pointer by 1 step
+        fast = fast->next->next;      // Move fast pointer by 2 steps
+
+        if (slow == fast) {
+            return true;  // Loop detected
+        }
+    }
+
+    return false; // No loop
+}
+
+
+
+2nd largest element in an array
+
+int findSecondLargest(int arr[], int n) {
+    int first = INT_MIN, second = INT_MIN;
+
+    for (int i = 0; i < n; i++) {
+        if (arr[i] > first) {
+            second = first;
+            first = arr[i];
+        } else if (arr[i] > second && arr[i] != first) {
+            second = arr[i];
+        }
+    }
+
+    return second;
+}
+
+
+
+C++ Code for Pointer to a Function
+
+int add(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    // Function pointer declaration
+    int (*funcPtr)(int, int);
+    
+    // Pointing to the add function
+    funcPtr = &add;
+    cout << "Addition: " << funcPtr(5, 3) << endl;
+    
+    return 0;
+}
+	
+
+
+2- Find the repeated elements from the array. (No STL Allowed)
+
+#include <iostream>
+using namespace std;
+
+void findRepeatedElements(int arr[], int n) {
+    const int MAX = 101; // Assuming array elements range from 0 to 100
+    int hash[MAX] = {0}; // Fixed-size array as a hash table
+
+    // Traverse the input array and populate hash
+    for (int i = 0; i < n; i++) {
+        hash[arr[i]]++;
+    }
+
+    // Print elements with count > 1
+    cout << "Repeated elements are: ";
+    for (int i = 0; i < MAX; i++) {
+        if (hash[i] > 1) {
+            cout << i << " ";
+        }
+    }
+    cout << endl;
+}
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 2, 5, 3, 6, 4};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    findRepeatedElements(arr, n);
+    return 0;
+}
+
+
+
+
+         
+
+
+
+
